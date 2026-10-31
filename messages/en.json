@@ -113,6 +113,8 @@
     }
   },
   "parcel": {
+    "categoryLabel": "Category",
+    "sizeLabel": "Size",
     "category": {
       "documents": "Documents & papers",
       "clothes": "Clothes & textiles",
@@ -276,6 +278,9 @@
       "review": "Review & submit"
     },
     "iAmReceiver": "I am the receiver",
+    "receiverName": "Receiver name",
+    "receiverPhone": "Receiver phone",
+    "handoverPoint": "Handover point",
     "draftSaved": "Draft saved",
     "tracking": "Tracking number",
     "timeline": "Shipment timeline",

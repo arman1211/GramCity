@@ -8,8 +8,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { z } from "zod";
 
-import { AppPage } from "@/components/shared/app-page";
-import { AuthGate } from "@/components/shared/auth-gate";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -28,6 +26,7 @@ type FormValues = z.infer<typeof schema>;
 function SupportForm() {
   const t = useTranslations("support");
   const tCommon = useTranslations("common");
+  const tDemo = useTranslations("demo");
   const searchParams = useSearchParams();
   const presetShipment = searchParams.get("shipmentId") ?? "";
 
@@ -42,9 +41,15 @@ function SupportForm() {
   });
 
   return (
-    <AppPage title={t("title")}>
+    <div className="mx-auto max-w-xl px-4 py-10 sm:py-12">
+      <header className="mb-8 space-y-2">
+        <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
+          {t("title")}
+        </h1>
+        <p className="text-sm text-muted-foreground">{tDemo("banner")}</p>
+      </header>
       <form
-        className="space-y-4"
+        className="space-y-4 rounded-2xl border border-border bg-card p-5 sm:p-6"
         onSubmit={form.handleSubmit(() => {
           toast.success(tCommon("submit"));
           form.reset({
@@ -75,22 +80,20 @@ function SupportForm() {
           {t("submit")}
         </Button>
       </form>
-    </AppPage>
+    </div>
   );
 }
 
-export default function SupportPage() {
+export default function PublicSupportPage() {
   return (
-    <AuthGate>
-      <Suspense
-        fallback={
-          <div className="mx-auto max-w-3xl px-4 py-8">
-            <Skeleton className="h-64 w-full" />
-          </div>
-        }
-      >
-        <SupportForm />
-      </Suspense>
-    </AuthGate>
+    <Suspense
+      fallback={
+        <div className="mx-auto max-w-xl px-4 py-10">
+          <Skeleton className="h-64 w-full" />
+        </div>
+      }
+    >
+      <SupportForm />
+    </Suspense>
   );
 }

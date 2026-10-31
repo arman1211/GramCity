@@ -1,4 +1,7 @@
+"use client";
+
 import * as React from "react";
+import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
 import type {
@@ -110,7 +113,7 @@ function resolvePayoutVariant(
   }
 }
 
-function inferDomain(status: string): StatusDomain {
+function inferDomain(status: string): Exclude<StatusDomain, "auto"> | null {
   const shipment: ShipmentStatus[] = [
     "draft",
     "requested",
@@ -154,7 +157,7 @@ function inferDomain(status: string): StatusDomain {
   ];
   if (payout.includes(status as PayoutStatus)) return "payout";
 
-  return "auto";
+  return null;
 }
 
 function resolveVariant(
@@ -199,15 +202,27 @@ function StatusBadge({
   className,
   ...props
 }: StatusBadgeProps) {
+  const domain = type === "auto" ? inferDomain(String(status)) : type;
+  const tShipment = useTranslations("status.shipment");
+  const tTrip = useTranslations("status.trip");
+  const tPayment = useTranslations("status.payment");
+  const tPayout = useTranslations("status.payout");
+
+  let translated = formatStatusLabel(String(status));
+  try {
+    if (!label && domain === "shipment") translated = tShipment(status as ShipmentStatus);
+    if (!label && domain === "trip") translated = tTrip(status as TripStatus);
+    if (!label && domain === "payment") translated = tPayment(status as PaymentStatus);
+    if (!label && domain === "payout") translated = tPayout(status as PayoutStatus);
+  } catch {
+    /* fall back to formatted status */
+  }
+
   const variant = resolveVariant(status, type);
-  const displayLabel = label ?? formatStatusLabel(status);
+  const displayLabel = label ?? translated;
 
   return (
-    <Badge
-      variant={variant}
-      className={cn("capitalize", className)}
-      {...props}
-    >
+    <Badge variant={variant} className={cn(className)} {...props}>
       {displayLabel}
     </Badge>
   );

@@ -115,26 +115,28 @@ function DashboardContent() {
           {t("quickActions")}
         </h2>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-          <Button asChild className="min-h-11 h-auto flex-col gap-1 py-3">
+          <Button asChild className="h-auto min-h-11 flex-col gap-1.5 rounded-xl py-3.5 shadow-sm shadow-emerald-900/5">
             <Link href="/shipments/new">
               <Send className="size-5" />
-              {tNav("send")}
+              <span className="text-xs sm:text-sm">{tNav("send")}</span>
             </Link>
           </Button>
-          <Button asChild variant="secondary" className="min-h-11 h-auto flex-col gap-1 py-3">
+          <Button asChild variant="secondary" className="h-auto min-h-11 flex-col gap-1.5 rounded-xl py-3.5">
             <Link href="/trips/new">
               <Plane className="size-5" />
-              {tNav("postTrip")}
+              <span className="text-xs sm:text-sm">{tNav("postTrip")}</span>
             </Link>
           </Button>
-          <Button asChild variant="outline" className="min-h-11 h-auto flex-col gap-1 py-3">
+          <Button asChild variant="outline" className="h-auto min-h-11 flex-col gap-1.5 rounded-xl py-3.5">
             <Link href="/shipments/sending">
               <Package className="size-5" />
-              {t("sendingSummary")}
+              <span className="text-xs sm:text-sm">{t("sendingSummary")}</span>
             </Link>
           </Button>
-          <Button asChild variant="outline" className="min-h-11 h-auto flex-col gap-1 py-3">
-            <Link href="/shipments/receiving">{t("receivingSummary")}</Link>
+          <Button asChild variant="outline" className="h-auto min-h-11 flex-col gap-1.5 rounded-xl py-3.5">
+            <Link href="/shipments/receiving">
+              <span className="text-xs sm:text-sm">{t("receivingSummary")}</span>
+            </Link>
           </Button>
         </div>
       </section>
@@ -216,18 +218,20 @@ function SummaryCard({
   href: string;
 }) {
   return (
-    <Card>
-      <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-medium text-muted-foreground">
-          {title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="flex items-end justify-between">
-        <span className="text-3xl font-semibold text-slate-900">{value}</span>
-        <Link href={href} className="text-sm font-medium text-emerald-700">
-          →
-        </Link>
-      </CardContent>
-    </Card>
+    <Link href={href} className="block transition-colors">
+      <Card className="h-full rounded-xl hover:border-emerald-200">
+        <CardHeader className="pb-2">
+          <CardTitle className="text-sm font-medium text-muted-foreground">
+            {title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="flex items-end justify-between">
+          <span className="text-3xl font-semibold tabular-nums text-slate-900">
+            {value}
+          </span>
+          <span className="text-sm font-medium text-emerald-700">→</span>
+        </CardContent>
+      </Card>
+    </Link>
   );
 }

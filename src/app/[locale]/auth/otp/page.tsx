@@ -36,9 +36,11 @@ export default function OtpPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-bold text-slate-900">{t("otpTitle")}</h1>
-        <p className="mt-2 text-sm text-muted-foreground">{tDemo("otpHint")}</p>
+      <div className="space-y-2">
+        <h1 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
+          {t("otpTitle")}
+        </h1>
+        <p className="text-sm text-muted-foreground">{tDemo("otpHint")}</p>
       </div>
 
       <form onSubmit={(e) => void handleVerify(e)} className="space-y-4">
@@ -50,28 +52,31 @@ export default function OtpPage() {
             autoComplete="one-time-code"
             maxLength={6}
             value={code}
-            onChange={(e) => setCode(e.target.value)}
-            className="min-h-11 tracking-widest"
+            onChange={(e) => setCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
+            className="min-h-12 text-center text-2xl tracking-[0.35em] font-semibold"
             disabled={submitting}
+            placeholder="••••••"
           />
         </div>
-        <div className="flex flex-col gap-2 sm:flex-row">
-          <Button type="submit" className="min-h-11 flex-1" disabled={submitting}>
-            {submitting ? tCommon("loading") : t("verify")}
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            className="min-h-11"
-            disabled={submitting}
-            onClick={() => setCode(DEMO_OTP)}
-          >
-            {DEMO_OTP}
-          </Button>
-        </div>
+        <Button
+          type="submit"
+          className="min-h-11 w-full"
+          disabled={submitting || code.length < 6}
+        >
+          {submitting ? tCommon("loading") : t("verify")}
+        </Button>
+        <Button
+          type="button"
+          variant="secondary"
+          className="min-h-11 w-full"
+          disabled={submitting}
+          onClick={() => setCode(DEMO_OTP)}
+        >
+          {tDemo("useDemo")}: {DEMO_OTP}
+        </Button>
       </form>
 
-      <Button asChild variant="link" className="h-auto p-0 text-sm">
+      <Button asChild variant="link" className="h-auto p-0 text-sm text-emerald-800">
         <Link href="/auth/sign-in">{tCommon("back")}</Link>
       </Button>
     </div>

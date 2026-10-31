@@ -2,8 +2,9 @@
 
 import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+import { LogoMark } from "@/components/brand/logo-mark";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +14,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Link, usePathname } from "@/i18n/navigation";
+import { getCurrentUser } from "@/lib/api";
 import { cn } from "@/lib/utils";
 
 const publicLinks = [
@@ -28,28 +30,26 @@ export function PublicHeader() {
   const tBrand = useTranslations("brand");
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [signedIn, setSignedIn] = useState(false);
+
+  useEffect(() => {
+    void getCurrentUser()
+      .then((u) => setSignedIn(Boolean(u)))
+      .catch(() => setSignedIn(false));
+  }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-30 border-b border-border/80 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:h-16">
         <Link
           href="/"
-          className="min-w-0 shrink leading-tight text-slate-900"
+          className="min-w-0 shrink rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          <span className="block text-base font-semibold sm:text-lg">
-            <span>GramCity Express</span>
-            <span className="mx-1 hidden font-normal text-muted-foreground sm:inline">
-              /
-            </span>
-            <span className="block text-emerald-800 sm:inline">গ্রামসিটি এক্সপ্রেস</span>
-          </span>
-          <span className="hidden text-xs font-normal text-muted-foreground sm:block">
-            {tBrand("tagline")}
-          </span>
+          <LogoMark />
         </Link>
 
         <nav
-          className="hidden items-center gap-1 md:flex"
+          className="hidden items-center gap-0.5 lg:flex"
           aria-label={t("home")}
         >
           {publicLinks.map(({ href, key }) => (
@@ -68,14 +68,20 @@ export function PublicHeader() {
 
         <div className="flex items-center gap-2">
           <LanguageSwitcher className="hidden sm:inline-flex" />
-          <Button asChild size="sm" className="hidden sm:inline-flex">
-            <Link href="/auth/sign-in">{t("signIn")}</Link>
-          </Button>
+          {signedIn ? (
+            <Button asChild size="sm" className="hidden sm:inline-flex">
+              <Link href="/dashboard">{t("dashboard")}</Link>
+            </Button>
+          ) : (
+            <Button asChild size="sm" className="hidden sm:inline-flex">
+              <Link href="/auth/sign-in">{t("signIn")}</Link>
+            </Button>
+          )}
           <Button
             type="button"
             variant="outline"
             size="icon"
-            className="md:hidden"
+            className="lg:hidden"
             aria-label="Menu"
             onClick={() => setMenuOpen(true)}
           >
@@ -87,7 +93,8 @@ export function PublicHeader() {
       <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
         <DialogContent className="left-0 top-0 flex h-full max-w-xs translate-x-0 translate-y-0 flex-col gap-0 rounded-none border-r p-0 sm:max-w-xs">
           <DialogHeader className="border-b border-border px-4 py-4 text-left">
-            <DialogTitle className="text-base">{tBrand("name")}</DialogTitle>
+            <DialogTitle className="sr-only">{tBrand("name")}</DialogTitle>
+            <LogoMark size="sm" />
           </DialogHeader>
           <nav className="flex flex-1 flex-col gap-1 overflow-y-auto p-3">
             {publicLinks.map(({ href, key }) => (
@@ -107,8 +114,11 @@ export function PublicHeader() {
           <div className="flex flex-col gap-2 border-t border-border p-4">
             <LanguageSwitcher className="w-full justify-center" />
             <Button asChild className="w-full">
-              <Link href="/auth/sign-in" onClick={() => setMenuOpen(false)}>
-                {t("signIn")}
+              <Link
+                href={signedIn ? "/dashboard" : "/auth/sign-in"}
+                onClick={() => setMenuOpen(false)}
+              >
+                {signedIn ? t("dashboard") : t("signIn")}
               </Link>
             </Button>
           </div>

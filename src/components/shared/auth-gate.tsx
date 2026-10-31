@@ -27,16 +27,19 @@ export function AuthGate({ children }: { children: ReactNode }) {
 
   if (!user) {
     return (
-      <EmptyState
-        icon={<LogIn />}
-        title={tAuth("signInTitle")}
-        description={tAuth("demoNotice")}
-        action={
-          <Button asChild className="min-h-11">
-            <Link href="/auth/sign-in">{t("signIn")}</Link>
-          </Button>
-        }
-      />
+      <div className="mx-auto flex min-h-[50vh] max-w-lg items-center px-4 py-10">
+        <EmptyState
+          className="w-full rounded-2xl border border-border bg-card py-14"
+          icon={<LogIn />}
+          title={tAuth("signInTitle")}
+          description={tAuth("demoNotice")}
+          action={
+            <Button asChild className="min-h-11">
+              <Link href="/auth/sign-in">{t("signIn")}</Link>
+            </Button>
+          }
+        />
+      </div>
     );
   }
 

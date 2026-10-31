@@ -12,7 +12,7 @@ export function DemoBanner({ className }: { className?: string }) {
     <div
       role="status"
       className={cn(
-        "sticky top-0 z-40 border-b border-amber-200/80 bg-gradient-to-r from-emerald-50/90 to-amber-50/90 px-4 py-2 text-center text-sm text-slate-700 backdrop-blur-sm",
+        "sticky top-0 z-40 border-b border-amber-200/70 bg-amber-50/95 px-4 py-2 text-center text-xs text-amber-950/90 backdrop-blur-sm sm:text-sm",
         className
       )}
     >

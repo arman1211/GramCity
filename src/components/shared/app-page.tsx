@@ -18,10 +18,10 @@ export function AppPage({
   action?: ReactNode;
 }) {
   return (
-    <div className={cn("mx-auto max-w-3xl px-4 py-6 md:py-8", className)}>
-      <header className="mb-6 flex flex-wrap items-start justify-between gap-3">
+    <div className={cn("mx-auto max-w-3xl space-y-6 px-4 py-6 md:py-8", className)}>
+      <header className="flex flex-wrap items-start justify-between gap-3">
         <div className="space-y-1">
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
+          <h1 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
             {title}
           </h1>
           {description ? (
@@ -30,7 +30,7 @@ export function AppPage({
         </div>
         {action}
       </header>
-      {children}
+      <div className="space-y-6">{children}</div>
     </div>
   );
 }

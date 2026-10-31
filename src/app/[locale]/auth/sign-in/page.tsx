@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import { useRouter } from "@/i18n/navigation";
 import {
   ApiClientError,
@@ -47,6 +48,7 @@ export default function SignInPage() {
   }
 
   async function handlePersona(userId: string) {
+    if (!userId) return;
     setSubmitting(true);
     try {
       await signInDemoAccount(userId);
@@ -60,9 +62,13 @@ export default function SignInPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-bold text-slate-900">{t("signInTitle")}</h1>
-        <p className="mt-2 text-sm text-amber-900">{t("demoNotice")}</p>
+      <div className="space-y-2">
+        <h1 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
+          {t("signInTitle")}
+        </h1>
+        <p className="rounded-lg border border-amber-100 bg-amber-50/80 px-3 py-2 text-sm text-amber-950/90">
+          {t("demoNotice")}
+        </p>
       </div>
 
       <form onSubmit={(e) => void handleSendOtp(e)} className="space-y-4">
@@ -85,36 +91,43 @@ export default function SignInPage() {
         </Button>
       </form>
 
-      <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-slate-800">{t("personasTitle")}</p>
-        <p className="mt-1 text-xs text-muted-foreground">{tDemo("otpHint")}</p>
-        <ul className="mt-3 space-y-2">
+      <div className="relative py-1">
+        <Separator />
+        <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-card px-2 text-xs text-muted-foreground">
+          {tDemo("useDemo")}
+        </span>
+      </div>
+
+      <div className="space-y-3">
+        <div>
+          <p className="text-sm font-medium text-slate-800">{t("personasTitle")}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{tDemo("otpHint")}</p>
+        </div>
+        <ul className="space-y-2">
           {personas.map((p) => (
             <li key={p.userId}>
               <Button
                 type="button"
                 variant="outline"
-                className="min-h-11 h-auto w-full justify-start whitespace-normal py-2 text-left"
+                className="h-auto min-h-11 w-full justify-start gap-3 whitespace-normal border-slate-200 py-2.5 text-left hover:border-emerald-200 hover:bg-emerald-50/40"
                 disabled={submitting}
                 onClick={() => void handlePersona(p.userId)}
               >
-                <span className="block font-medium">{p.displayName}</span>
-                <span className="block text-xs font-normal text-muted-foreground">
-                  {p.role}
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-semibold text-emerald-800">
+                  {p.displayName.slice(0, 1)}
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block font-medium text-slate-900">
+                    {p.displayName}
+                  </span>
+                  <span className="block text-xs font-normal text-muted-foreground">
+                    {p.phone} · {p.role}
+                  </span>
                 </span>
               </Button>
             </li>
           ))}
         </ul>
-        <Button
-          type="button"
-          variant="secondary"
-          className="mt-3 min-h-11 w-full"
-          disabled={submitting}
-          onClick={() => void handlePersona(personas[0]?.userId ?? "")}
-        >
-          {tDemo("useDemo")}
-        </Button>
       </div>
     </div>
   );

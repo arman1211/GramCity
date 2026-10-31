@@ -28,7 +28,7 @@ function EmptyState({
     >
       {icon ? (
         <div
-          className="flex size-14 items-center justify-center rounded-full bg-muted text-muted-foreground [&_svg]:size-7"
+          className="flex size-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-700 [&_svg]:size-7"
           aria-hidden
         >
           {icon}

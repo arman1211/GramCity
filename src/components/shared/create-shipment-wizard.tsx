@@ -491,9 +491,9 @@ export function CreateShipmentWizard({ initialTripId, draftId }: Props) {
             ) : null}
           </div>
           <div className="space-y-2">
-            <Label>{t("steps.route")}</Label>
+            <Label>{t("handoverPoint")}</Label>
             <Select
-              value={form.watch("handoverPointId") ?? ""}
+              value={form.watch("handoverPointId") || undefined}
               onValueChange={(v) => form.setValue("handoverPointId", v)}
             >
               <SelectTrigger className="min-h-11">
@@ -514,7 +514,7 @@ export function CreateShipmentWizard({ initialTripId, draftId }: Props) {
       {stepKey === "parcel" ? (
         <div className="grid gap-4">
           <div className="space-y-2">
-            <Label>Category</Label>
+            <Label>{tParcel("categoryLabel")}</Label>
             <Select
               value={form.watch("category")}
               onValueChange={(v) =>
@@ -554,7 +554,7 @@ export function CreateShipmentWizard({ initialTripId, draftId }: Props) {
               />
             </div>
             <div className="space-y-2">
-              <Label>Size</Label>
+              <Label>{tParcel("sizeLabel")}</Label>
               <Select
                 value={form.watch("size")}
                 onValueChange={(v) =>
@@ -599,7 +599,7 @@ export function CreateShipmentWizard({ initialTripId, draftId }: Props) {
             <span className="text-sm font-medium">{t("iAmReceiver")}</span>
           </label>
           <div className="space-y-2">
-            <Label>{t("steps.receiver")}</Label>
+            <Label>{t("receiverName")}</Label>
             <Input
               className="min-h-11"
               disabled={isSenderReceiver}
@@ -612,7 +612,7 @@ export function CreateShipmentWizard({ initialTripId, draftId }: Props) {
             ) : null}
           </div>
           <div className="space-y-2">
-            <Label>{t("steps.receiver")} phone</Label>
+            <Label>{t("receiverPhone")}</Label>
             <Input
               className="min-h-11"
               disabled={isSenderReceiver}

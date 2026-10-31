@@ -113,6 +113,8 @@
     }
   },
   "parcel": {
+    "categoryLabel": "ধরন",
+    "sizeLabel": "সাইজ",
     "category": {
       "documents": "কাগজপত্র ও দলিল",
       "clothes": "পোশাক ও কাপড়",
@@ -276,6 +278,9 @@
       "review": "পর্যালোচনা ও জমা"
     },
     "iAmReceiver": "আমিই গ্রহীতা",
+    "receiverName": "গ্রহীতার নাম",
+    "receiverPhone": "গ্রহীতার ফোন",
+    "handoverPoint": "হ্যান্ডওভার পয়েন্ট",
     "draftSaved": "খসড়া সংরক্ষিত",
     "tracking": "ট্র্যাকিং নম্বর",
     "timeline": "শিপমেন্ট টাইমলাইন",
