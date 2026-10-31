@@ -1,0 +1,307 @@
+Build the complete interactive frontend for “GramCity Express / গ্রামসিটি এক্সপ্রেস”, a Bangladesh-focused community parcel delivery platform.
+
+For this phase, use realistic dummy data only. Do not build a backend or connect real authentication, SMS, payment, or identity-verification services.
+
+The result must feel like a polished, usable product rather than a generic landing-page template.
+
+TECHNOLOGY
+
+- Next.js with App Router and TypeScript.
+- Tailwind CSS.
+- shadcn/ui or equivalent accessible components.
+- Lucide icons.
+- next-intl for Bangla and English.
+- React Hook Form and Zod for forms.
+- A typed mock API service layer.
+- Lightweight state management; avoid unnecessary dependencies.
+
+Use maintained compatible versions.
+
+PRODUCT AND ACCOUNT MODEL
+
+People send parcels through travelers who are already going to the destination.
+
+One user account can:
+1. Send parcels.
+2. Receive parcels.
+3. Post trips and carry parcels.
+
+These are activities within one account, not permanent account types.
+
+Provide dashboard tabs:
+- Overview.
+- Sending.
+- Receiving.
+- My Trips.
+- Carrying.
+
+Keep receiver and traveler clearly distinguished throughout the interface.
+
+DESIGN DIRECTION
+
+Create a professional, approachable logistics product.
+
+- Emerald green primary color.
+- Off-white backgrounds and clean white surfaces.
+- Dark slate typography.
+- Restrained amber for pending actions.
+- Consistent spacing, subtle borders, and minimal shadows.
+- Strong visual hierarchy.
+- Readable Bangla font paired with a clean English font.
+- Elegant cards, compact status badges, clear timelines.
+- Avoid excessive gradients, oversized hero sections, decorative charts, and generic stock photos.
+- Use meaningful route visuals and parcel illustrations only where useful.
+- Provide polished empty states, skeletons, errors, and success feedback.
+- No fake business statistics or invented customer testimonials.
+
+MOBILE FIRST
+
+Prioritize 360–430 px screens, then tablet and desktop.
+
+- No horizontal overflow.
+- Touch targets approximately 44 px or larger.
+- Comfortable typography.
+- Mobile bottom navigation: Home, Explore, Shipments, Trips, Account.
+- Desktop sidebar for authenticated pages.
+- Responsive navigation for public pages.
+- Sticky primary actions where appropriate.
+- Multi-step forms with clear progress.
+- Use mobile cards instead of squeezing large tables onto small screens.
+- Make dialogs, drawers, dropdowns, and date selectors usable with the mobile keyboard.
+- Respect reduced-motion preferences.
+- Support keyboard navigation and accessible labels.
+
+BANGLA AND ENGLISH
+
+- Complete /bn and /en routes.
+- Bangla as the initial default.
+- Persistent language preference.
+- Language switcher visible on all major screens.
+- Preserve the current route and form progress when switching language.
+- Translate navigation, forms, errors, status names, mock notifications, and help text.
+- Store translations centrally.
+- Do not translate user-generated content automatically.
+- Search locations using Bangla or English.
+- Accept Bangla and English digits in numeric inputs.
+- Support local and +880 phone formats.
+- Show BDT prices and Asia/Dhaka dates.
+- Use realistic, natural Bangla copy, not literal machine-style translations.
+
+PUBLIC PAGES
+
+1. Home
+- Short, useful hero.
+- “Send a parcel” and “Post a trip” primary actions.
+- Route search with origin, destination, and date.
+- How sending, receiving, and carrying work.
+- Supported route examples.
+- Practical safety information.
+- Clear link to the pricing estimator.
+- No unsupported nationwide or guaranteed delivery claims.
+
+2. Explore Trips
+- Search by origin, destination, and date.
+- Filters for capacity, departure window, and verified traveler.
+- Sort by departure or price.
+- Trip cards showing route, departure, arrival window, remaining capacity, price, and traveler information.
+- Clear no-results state.
+
+3. Trip Details
+- Route and approved handover points.
+- Departure and arrival window.
+- Available capacity.
+- Accepted parcel types.
+- Traveler profile and genuine-looking but explicitly demo ratings.
+- Price summary.
+- “Request delivery” action.
+
+4. Pricing Estimator
+- Route, weight, size, and service options.
+- Itemized estimate.
+- Explain that prices are demo estimates.
+- Pricing must come through the mock service, not be duplicated across components.
+
+5. How It Works
+6. Safety and Prohibited Items
+7. FAQ and Support
+8. Policy placeholders clearly marked as draft content
+
+AUTHENTICATION DEMO
+
+Create polished phone sign-in and OTP screens.
+
+- Clearly label authentication as a demo.
+- Provide a documented demo code and a convenient “Use demo account” option.
+- Do not send real SMS.
+- No real NID collection.
+- Allow switching between a small set of demo personas to demonstrate sender, receiver, and traveler interactions.
+- Each persona can still use all account activities.
+- Ensure forms have realistic validation and feedback.
+
+AUTHENTICATED SCREENS
+
+1. Dashboard
+- Upcoming actions.
+- Sending and receiving summaries.
+- Upcoming trips.
+- Recent activity.
+- Useful quick actions.
+- Avoid meaningless dashboard charts.
+
+2. Create Shipment
+Use a step-by-step form:
+- Route and handover points.
+- Parcel category, description, weight, dimensions, declared value, and optional image preview.
+- Receiver name and phone.
+- “I am the receiver” option.
+- Matching trips.
+- Quote breakdown.
+- Review and submit.
+
+Support draft saving and back navigation without losing data.
+
+3. Sending
+- Filterable shipment list.
+- Status badges.
+- Search by tracking number.
+- Shipment detail page with timeline.
+- Contextual actions: edit draft, cancel request, view traveler, contact support.
+
+4. Receiving
+- Incoming parcel list.
+- Sender and route details.
+- Arrival window.
+- Acknowledge expected parcel.
+- Confirm availability.
+- Request handover changes.
+- Confirm receipt through a simulated delivery-code flow.
+- Report an issue.
+
+5. My Trips
+- Create and edit trips.
+- List upcoming/completed trips.
+- See booking requests.
+- Accept or reject requests.
+- Show remaining capacity after acceptance.
+
+6. Carrying
+- Accepted parcels for each trip.
+- Pickup checklist.
+- Mark picked up.
+- Mark in transit.
+- Mark ready for handover.
+- Complete delivery using demo receiver confirmation.
+
+7. Earnings
+- Simple traveler earnings history.
+- Pending and completed payouts.
+- Clearly marked simulated financial data.
+- Do not implement a stored-value wallet.
+
+8. Notifications
+9. Shipment-specific Messages
+10. Profile and Preferences
+11. Traveler Verification Demo
+12. Support and Dispute Form
+
+INTERACTIVITY
+
+Every important visible action must work locally.
+
+Examples:
+- Posting a trip adds it to My Trips and matching search results.
+- Creating a shipment adds it to Sending.
+- The corresponding demo receiver can see it in Receiving.
+- Accepting a request updates capacity.
+- Delivery updates the shipment timeline.
+- Cancelling updates lists and capacity.
+- Notifications update after relevant actions.
+- Sending a message appends it to the conversation.
+- Filters, sorting, tabs, and pagination work.
+- Reviews can only be added after a simulated completed delivery.
+
+Prevent impossible transitions in the mock service.
+
+Include:
+- Loading latency simulation.
+- Empty and error scenarios.
+- A “Reset demo data” action.
+- Persistent demo state using localStorage with a versioned schema.
+- Clear “Demo mode — no real deliveries or payments” labeling.
+
+Do not persist sensitive identity documents or real authentication credentials.
+
+MOCK DATA
+
+Use fictional people and realistic Bangladesh locations, including:
+- Dhaka.
+- Pabna.
+- Bogura.
+- Cumilla.
+- Chattogram.
+- Gazipur.
+- Mymensingh.
+
+Include:
+- 6–8 fictional users.
+- 12–15 trips.
+- 15–20 shipments in varied statuses.
+- Example messages, notifications, and completed reviews.
+
+Ensure relationships between users, shipments, trips, and reviews are internally consistent.
+
+ARCHITECTURE AND FUTURE API INTEGRATION
+
+Do not put mock arrays directly inside page components.
+
+Organize code around:
+- app/[locale]
+- components/ui
+- features
+- lib/api
+- lib/mock
+- lib/types
+- messages
+
+Define typed service functions such as:
+- getCurrentUser
+- listTrips
+- getTrip
+- createTrip
+- getQuote
+- createShipment
+- listSending
+- listReceiving
+- listCarrying
+- acceptShipment
+- transitionShipment
+- confirmDelivery
+- listNotifications
+
+The mock implementation must be replaceable with HTTP calls without rewriting the UI.
+
+Create docs/api-contract.md describing the expected REST endpoints, request/response fields, pagination, error codes, and status enums.
+
+Use consistent identifiers, ISO timestamps, and integer minor units for money.
+
+Keep shipment, payment, and payout statuses separate.
+
+Suggested shipment statuses:
+draft, requested, accepted, confirmed, picked_up,
+in_transit, ready_for_handover, delivered,
+rejected, cancelled, delivery_failed, returned.
+
+QUALITY AND DELIVERY
+
+- Implement the whole experience, not just the home page.
+- Check both languages.
+- Check mobile, tablet, and desktop layouts.
+- Test the core send → accept → pickup → receive journey.
+- Verify no dead buttons or broken navigation.
+- Run lint, type checking, and production build.
+- Include a README with setup commands and demo account instructions.
+- Explain how to replace mock services with the FastAPI backend.
+- Clearly state that payment, OTP, verification, and delivery operations are simulations.
+
+Start by inspecting the repository, then implement the frontend.
+Do not stop after producing a plan.

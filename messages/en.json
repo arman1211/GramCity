@@ -1,0 +1,355 @@
+{
+  "meta": {
+    "title": "GramCity Express — Community parcel delivery",
+    "description": "Send parcels with travelers already heading your way. Safe handovers, clear pricing, and tracking across Bangladesh."
+  },
+  "brand": {
+    "name": "GramCity Express",
+    "tagline": "Your parcel, their route"
+  },
+  "demo": {
+    "banner": "Demo mode — no real deliveries, payments, or SMS",
+    "modeLabel": "Demo",
+    "reset": "Reset demo data",
+    "otpHint": "Use code 123456 for any phone number",
+    "useDemo": "Use demo account"
+  },
+  "nav": {
+    "home": "Home",
+    "explore": "Explore",
+    "shipments": "Shipments",
+    "trips": "Trips",
+    "account": "Account",
+    "send": "Send a parcel",
+    "postTrip": "Post a trip",
+    "pricing": "Pricing",
+    "howItWorks": "How it works",
+    "safety": "Safety",
+    "faq": "FAQ",
+    "support": "Support",
+    "dashboard": "Dashboard",
+    "sending": "Sending",
+    "receiving": "Receiving",
+    "myTrips": "My trips",
+    "carrying": "Carrying",
+    "earnings": "Earnings",
+    "notifications": "Notifications",
+    "messages": "Messages",
+    "profile": "Profile",
+    "verification": "Verification",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "language": "Language"
+  },
+  "common": {
+    "loading": "Loading…",
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "apply": "Apply",
+    "clear": "Clear",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "close": "Close",
+    "viewAll": "View all",
+    "empty": "Nothing here yet",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "optional": "Optional",
+    "required": "Required",
+    "from": "From",
+    "to": "To",
+    "date": "Date",
+    "weight": "Weight",
+    "price": "Price",
+    "status": "Status",
+    "actions": "Actions",
+    "demoOnly": "Demo only",
+    "noResults": "No results found",
+    "copySuccess": "Copied to clipboard"
+  },
+  "status": {
+    "shipment": {
+      "draft": "Draft",
+      "requested": "Requested",
+      "accepted": "Accepted",
+      "confirmed": "Confirmed",
+      "picked_up": "Picked up",
+      "in_transit": "In transit",
+      "ready_for_handover": "Ready for handover",
+      "delivered": "Delivered",
+      "rejected": "Rejected",
+      "cancelled": "Cancelled",
+      "delivery_failed": "Delivery failed",
+      "returned": "Returned"
+    },
+    "trip": {
+      "draft": "Draft",
+      "open": "Open",
+      "full": "Full",
+      "in_progress": "In progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "payment": {
+      "unpaid": "Unpaid",
+      "pending": "Pending",
+      "paid": "Paid",
+      "refunded": "Refunded",
+      "failed": "Failed"
+    },
+    "payout": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "completed": "Completed",
+      "failed": "Failed"
+    }
+  },
+  "parcel": {
+    "category": {
+      "documents": "Documents & papers",
+      "clothes": "Clothes & textiles",
+      "electronics": "Electronics",
+      "food_dry": "Dry food & snacks",
+      "gifts": "Gifts",
+      "other": "Other"
+    },
+    "size": {
+      "small": "Small — fits in a backpack",
+      "medium": "Medium — carry-on size",
+      "large": "Large — needs extra space"
+    },
+    "description": "Parcel description",
+    "declaredValue": "Declared value",
+    "dimensions": "Dimensions"
+  },
+  "home": {
+    "heroTitle": "Your parcel, their route",
+    "heroSubtitle": "Match with travelers already heading to your city — clear handovers, fair rates, no courier vans required.",
+    "sendCta": "Send a parcel",
+    "tripCta": "Post a trip",
+    "routeSearch": "Find a trip",
+    "routeSearchHint": "Search by origin, destination, and optional date.",
+    "howTitle": "How it works",
+    "howSendTitle": "Send",
+    "howReceiveTitle": "Receive",
+    "howCarryTitle": "Carry",
+    "howSend": "Describe your parcel, pick a matching trip, and hand it over at an agreed point.",
+    "howReceive": "Confirm you are available, then collect with a delivery code when it arrives.",
+    "howCarry": "Share spare capacity on trips you already take and earn along the way.",
+    "routesTitle": "Trips leaving soon",
+    "routesSubtitle": "Real demo routes across Bangladesh — tap any trip for details.",
+    "safetyTeaser": "Know what you can send and how handovers stay safe.",
+    "pricingLink": "Estimate delivery cost",
+    "pricingHint": "Demo quotes only — no real payment."
+  },
+  "explore": {
+    "title": "Explore trips",
+    "subtitle": "Find travelers with space on your route and date.",
+    "filters": "Filters",
+    "capacity": "Minimum capacity (kg)",
+    "verifiedOnly": "Verified travelers only",
+    "sortDeparture": "Sort by departure",
+    "sortPrice": "Sort by price",
+    "noResults": "No trips match your search. Try different dates or nearby cities."
+  },
+  "trip": {
+    "details": "Trip details",
+    "capacity": "Remaining capacity",
+    "handover": "Handover points",
+    "parcelTypes": "Accepted parcel types",
+    "traveler": "Traveler",
+    "requestDelivery": "Request delivery",
+    "priceSummary": "Price summary",
+    "ratingsDemo": "Demo ratings — not from real customers"
+  },
+  "pricing": {
+    "title": "Pricing estimator",
+    "subtitle": "Get a demo quote before you send. Final price may change when you match with a trip.",
+    "estimate": "Estimated total",
+    "itemized": "Itemized breakdown",
+    "demoDisclaimer": "These amounts are simulated for the demo. No payment is collected."
+  },
+  "how": {
+    "title": "How GramCity Express works",
+    "subtitle": "One account can send, receive, and carry — pick what you need for each parcel.",
+    "sendTitle": "Sending a parcel",
+    "sendSteps": [
+      "Choose origin, destination, and handover points.",
+      "Describe your parcel — category, weight, and size.",
+      "Add receiver details or mark yourself as the receiver.",
+      "Browse matching trips and request delivery.",
+      "Review the quote, confirm, and hand over at the agreed time."
+    ],
+    "receiveTitle": "Receiving a parcel",
+    "receiveSteps": [
+      "See incoming parcels on your Receiving tab.",
+      "Acknowledge the shipment and confirm when you are available.",
+      "Meet at the handover point or request a change if needed.",
+      "Enter the delivery code to confirm receipt.",
+      "Report an issue if something does not match."
+    ],
+    "carryTitle": "Carrying on your trip",
+    "carrySteps": [
+      "Post a trip with route, dates, and spare capacity.",
+      "Review delivery requests and accept parcels you can carry.",
+      "Pick up parcels at the sender handover point.",
+      "Update status as you travel and when ready for handover.",
+      "Complete delivery when the receiver confirms with their code."
+    ]
+  },
+  "safety": {
+    "title": "Safety & community rules",
+    "prohibited": "Do not send prohibited items — including flammables, weapons, illegal goods, perishable food without agreement, or anything that violates local law.",
+    "tips": "Meet in public handover points, verify parcel contents match the description, keep messages on-platform, and never share passwords or OTPs with strangers."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "q": "Is GramCity Express available nationwide?",
+        "a": "The demo shows sample routes between major cities. Real coverage will depend on active travelers on each corridor — we do not guarantee delivery to every address."
+      },
+      {
+        "q": "How is pricing calculated?",
+        "a": "Quotes combine route distance, parcel weight and size, and optional services. Use the pricing estimator for a demo breakdown before you send."
+      },
+      {
+        "q": "Can one account send and carry?",
+        "a": "Yes. Sending, receiving, and carrying are activities in the same account — switch between them anytime from the dashboard."
+      },
+      {
+        "q": "What if my parcel is delayed?",
+        "a": "Travel times follow the posted trip window. Track status in the app and message the traveler. Use Support to report serious issues."
+      },
+      {
+        "q": "Are payments real in this demo?",
+        "a": "No. Payment and payout screens use simulated data only. No money moves in the demo environment."
+      },
+      {
+        "q": "How does verification work?",
+        "a": "Traveler verification in the demo is a guided placeholder. Real identity checks would run through approved providers before go-live."
+      }
+    ]
+  },
+  "policies": {
+    "draftNotice": "Draft policy — for demonstration only. Legal text will be published before launch.",
+    "terms": "Terms of service (draft)",
+    "privacy": "Privacy policy (draft)",
+    "community": "Community guidelines (draft)"
+  },
+  "auth": {
+    "signInTitle": "Sign in with your phone",
+    "phoneLabel": "Mobile number",
+    "phoneHint": "Bangladesh numbers: 01XXXXXXXXX or +8801XXXXXXXXX",
+    "sendOtp": "Send OTP",
+    "otpTitle": "Enter verification code",
+    "otpLabel": "6-digit code",
+    "verify": "Verify",
+    "demoNotice": "Demo sign-in — no SMS is sent. Use the demo code or quick sign-in below.",
+    "personasTitle": "Try a demo persona"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "upcoming": "Upcoming",
+    "sendingSummary": "Sending",
+    "receivingSummary": "Receiving",
+    "tripsSummary": "My trips",
+    "recent": "Recent activity",
+    "quickActions": "Quick actions"
+  },
+  "shipment": {
+    "create": "Create shipment",
+    "steps": {
+      "route": "Route & handover",
+      "parcel": "Parcel details",
+      "receiver": "Receiver",
+      "match": "Match a trip",
+      "quote": "Quote",
+      "review": "Review & submit"
+    },
+    "iAmReceiver": "I am the receiver",
+    "draftSaved": "Draft saved",
+    "tracking": "Tracking number",
+    "timeline": "Shipment timeline",
+    "cancel": "Cancel shipment",
+    "contactSupport": "Contact support"
+  },
+  "sending": {
+    "title": "Sending",
+    "searchTracking": "Search by tracking number"
+  },
+  "receiving": {
+    "title": "Receiving",
+    "acknowledge": "Acknowledge parcel",
+    "confirmAvailability": "Confirm availability",
+    "requestHandoverChange": "Request handover change",
+    "confirmReceipt": "Confirm receipt",
+    "reportIssue": "Report an issue",
+    "enterCode": "Enter delivery code"
+  },
+  "myTrips": {
+    "title": "My trips",
+    "create": "Create trip",
+    "requests": "Delivery requests",
+    "accept": "Accept",
+    "reject": "Reject",
+    "remainingCapacity": "Remaining capacity"
+  },
+  "carrying": {
+    "title": "Carrying",
+    "checklist": "Pickup checklist",
+    "markPickedUp": "Mark picked up",
+    "markInTransit": "Mark in transit",
+    "markReady": "Mark ready for handover",
+    "completeDelivery": "Complete delivery"
+  },
+  "earnings": {
+    "title": "Earnings",
+    "pending": "Pending payouts",
+    "completed": "Completed payouts",
+    "simulatedNotice": "Simulated earnings for demo — not withdrawable."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Mark all as read",
+    "empty": "No notifications yet"
+  },
+  "messages": {
+    "title": "Messages",
+    "placeholder": "Write a message…",
+    "send": "Send"
+  },
+  "profile": {
+    "title": "Profile",
+    "preferences": "Preferences",
+    "language": "Language",
+    "resetDemo": "Reset demo data"
+  },
+  "verification": {
+    "title": "Traveler verification",
+    "demoNotice": "This flow is a demo. No documents are stored or sent to a real verifier.",
+    "steps": [
+      "Confirm your phone number (demo).",
+      "Upload sample ID images (not persisted).",
+      "Review checklist and submit for simulated approval."
+    ]
+  },
+  "support": {
+    "title": "Support",
+    "form": {
+      "subject": "Subject",
+      "shipmentId": "Shipment ID (optional)",
+      "message": "Describe your issue",
+      "contact": "Contact phone or email"
+    },
+    "submit": "Submit request"
+  }
+}

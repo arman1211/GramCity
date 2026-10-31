@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafaf9;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #059669;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #ecfdf5;
+  --accent-foreground: #047857;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #059669;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-en), var(--font-bn), system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-bn: var(--font-bn);
+  --font-en: var(--font-en);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-bn), var(--font-en), system-ui, sans-serif;
+}
+
+:lang(en) body {
+  font-family: var(--font-en), var(--font-bn), system-ui, sans-serif;
+}
+
+@keyframes gc-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gc-dash {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+
+@keyframes gc-pulse-soft {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.gc-fade-up {
+  animation: gc-fade-up 0.7s ease-out both;
+}
+
+.gc-fade-up-delay-1 {
+  animation: gc-fade-up 0.7s ease-out 0.12s both;
+}
+
+.gc-fade-up-delay-2 {
+  animation: gc-fade-up 0.7s ease-out 0.24s both;
+}
+
+.gc-fade-up-delay-3 {
+  animation: gc-fade-up 0.7s ease-out 0.36s both;
+}
+
+.gc-route-dash {
+  stroke-dasharray: 8 10;
+  animation: gc-dash 1.6s linear infinite;
+}
+
+.gc-hero-glow {
+  animation: gc-pulse-soft 5s ease-in-out infinite;
+}
+
+.gc-home-hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgb(16 185 129 / 0.22), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgb(5 150 105 / 0.12), transparent 50%),
+    linear-gradient(165deg, #ecfdf5 0%, #fafaf9 42%, #f8fafc 100%);
+}
+
+.gc-dot-grid {
+  background-image: radial-gradient(rgb(15 23 42 / 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .gc-fade-up,
+  .gc-fade-up-delay-1,
+  .gc-fade-up-delay-2,
+  .gc-fade-up-delay-3,
+  .gc-route-dash,
+  .gc-hero-glow {
+    animation: none !important;
+  }
+}
